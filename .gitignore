@@ -1,0 +1,8 @@
+.idea/*
+pyvenv.cfg
+Scripts/*
+test/chromedriver.exe
+test/geckodriver.exe
+test/geckodriver.log
+__pycache__/
+Lib/
