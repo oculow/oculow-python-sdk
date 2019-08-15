@@ -1,6 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import lince
+import oculow
 
 driver = webdriver.Chrome()
 
@@ -8,7 +8,7 @@ driver = webdriver.Chrome()
 driver.get("http://www.project-lince.com")
 driver.set_window_size(1920, 1080)
 assert "Lince" in driver.title
-lince.capture_screen(driver, "Lince home - Chrome")
+oculow.capture_screen(driver, "Lince home - Chrome")
 
 driver.close()
 
@@ -16,6 +16,7 @@ driver = webdriver.Firefox()
 driver.get("http://www.project-lince.com")
 driver.set_window_size(1920, 1080)
 assert "Lince" in driver.title
-lince.capture_screen(driver, "Lince home - Firefox")
+oculow.capture_screen(driver, "Lince home - Firefox")
 
-lince.dispose()
+driver.close()
+oculow.dispose()
