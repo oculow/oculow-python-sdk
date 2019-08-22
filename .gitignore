@@ -6,4 +6,6 @@ test/geckodriver.exe
 test/geckodriver.log
 __pycache__/
 Lib/
+test/chromedriver
+*.pyc
 venv/
