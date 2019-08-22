@@ -185,9 +185,9 @@ def set_api_key(api_key):
     module_api_key = api_key
 
 
-def set_comparison_logic(match_level):
+def set_comparison_logic(comparison_logic):
     global module_comparison_logic
-    module_comparison_logic = match_level
+    module_comparison_logic = comparison_logic
 
 
 def set_app_id(app_id):
