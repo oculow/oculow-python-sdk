@@ -17,17 +17,18 @@ PIXEL_DIFF, IGNORE_AA, IGNORE_COLOR, DETECT_ERRORS = 0, 1, 2, 3
 
 
 _dir = tempfile.mkdtemp()
+module_comparison_logic = 1
+module_baseline_management = 1
 _execution_id = None
-module_api_key = "b5bd77ef-4da5-498e-92df-7d8cd2c9b355"  # TODO PARAMETRIZE
-module_app_id = "project-lince"  # TODO PARAMETRIZE
-module_comparison_logic = 0
+module_api_key = None
+module_api_secret_key = None
+module_app_id = None
 viewport_width = None
 viewport_height = None
-module_baseline_management = 1
-base_url = "https://us-central1-lince-232621.cloudfunctions.net/"  # TODO PARAMETRIZE
-process_function = "process_image-dev"  # TODO PARAMETRIZE
-execution_status_function = "get_execution_status-dev"  # TODO PARAMETRIZE
-_report_base_url = "http://127.0.0.1:5502/dashboard/executions.html"
+base_url = "https://us-central1-lince-232621.cloudfunctions.net/"
+_report_base_url = "https://www.oculow.com/dashboard/executions.html"
+execution_status_function = "get_execution_status-dev"  # TODO extract to config file
+process_function = "process_image-dev"  # TODO extract to config file
 
 def get_result():
     url = base_url + execution_status_function
@@ -46,7 +47,7 @@ def upload_image(image):
     url = base_url + process_function
     files = {'file': open(image, 'rb')}
     r = requests.post(url, files=files, data={
-        'api_key': module_api_key,
+        'api_key': module_api_key+"__"+module_secret_key,
         'app_id': module_app_id,
         'comparison_logic': module_comparison_logic,
         'execution_id': _execution_id,
@@ -180,9 +181,10 @@ def dispose():
         _report_base_url, _execution_id))
 
 
-def set_api_key(api_key):
+def set_api_key(api_key, secret_key):
     global module_api_key
     module_api_key = api_key
+    module_secret_key = secret_key
 
 
 def set_comparison_logic(comparison_logic):

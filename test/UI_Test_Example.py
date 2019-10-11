@@ -3,7 +3,7 @@ from selenium.webdriver.common.keys import Keys
 import oculow
 
 # Configure lince settings
-oculow.set_api_key("b5bd77ef-4da5-498e-92df-7d8cd2c9b356")
+oculow.set_api_key("9HanEbAexPF2cPAJzlFNXBIGNzqhK2pU", "uTLZZLR/HnUOCu5U7vNI6WrsYTBGTBxM")
 oculow.set_app_id("oculow")
 oculow.set_baseline_management(oculow.ASSISTED)
 oculow.set_comparison_logic(oculow.PIXEL_DIFF)
