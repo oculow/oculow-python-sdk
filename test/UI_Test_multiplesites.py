@@ -2,10 +2,10 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import oculow
 
-driver = webdriver.Chrome("./chromedriver")
+driver = webdriver.Chrome("C:\\Users\\potos\\Documents\\oculow\\oculow-python-sdk\\chromedriver.exe")
 # Capture apptim website
 driver.get("http://www.oculow.com")
-assert "Google" in driver.title
+assert "Oculow" in driver.title
 oculow.capture_screen(driver)
 
 # Capture lince website

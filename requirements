@@ -1,2 +1,4 @@
 pillow==6.0.0
 requests==2.22.0
+selenium==3.141.0
+Pillow==6.2.0

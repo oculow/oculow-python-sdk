@@ -15,7 +15,6 @@ MANUAL, ASSISTED, FORCE_NEW, FORCE_ALL = 0, 1, 2, 3
 # 0 = Pixel diff, 1 = Ignore Aliasing, 2= Ignore color 3= layout / Not implemented, 4= detect errors
 PIXEL_DIFF, IGNORE_AA, IGNORE_COLOR, DETECT_ERRORS = 0, 1, 2, 3
 
-
 _dir = tempfile.mkdtemp()
 module_comparison_logic = 1
 module_baseline_management = 1
@@ -29,6 +28,7 @@ base_url = "https://us-central1-lince-232621.cloudfunctions.net/"
 _report_base_url = "https://www.oculow.com/dashboard/executions.html"
 execution_status_function = "get_execution_status-dev"  # TODO extract to config file
 process_function = "process_image-dev"  # TODO extract to config file
+
 
 def get_result():
     url = base_url + execution_status_function
@@ -47,7 +47,7 @@ def upload_image(image):
     url = base_url + process_function
     files = {'file': open(image, 'rb')}
     r = requests.post(url, files=files, data={
-        'api_key': module_api_key+"__"+module_secret_key,
+        'api_key': module_api_key + "__" + module_secret_key,
         'app_id': module_app_id,
         'comparison_logic': module_comparison_logic,
         'execution_id': _execution_id,
@@ -56,9 +56,10 @@ def upload_image(image):
         "viewport": json.dumps({"width": viewport_width, "height": viewport_height})
     })
     print(r)
-    print(r.json())
+    r_response = r.json()
+    print(r_response)
     if not _execution_id:
-        _execution_id = r.json()
+        _execution_id = r_response['execution_id'] if 'execution_id' in r_response else r_response
     print("Uploaded image {}\n".format(image))
 
 
@@ -76,12 +77,20 @@ def capture_screen(driver, title=None):
     name, ext = os.path.splitext(save_path)
     if not ext or ext.lower() != 'png':
         save_path = save_path + ".png"
-    _fullpage_screenshot(driver, save_path)
+    take_visible_screenshot(driver, save_path)
 
     upload_image(save_path)
     # _upload_image("C:/Users/Potosin/Desktop/test_images/Capture2.png")
 
     return title
+
+
+def take_visible_screenshot(driver, file):
+    global viewport_height, viewport_width
+    viewport_width = driver.execute_script("return document.body.clientWidth")
+    viewport_height = driver.execute_script("return window.innerHeight")
+    driver.get_screenshot_as_file(file)
+    return True
 
 
 def _fullpage_screenshot(driver, file):
@@ -182,7 +191,7 @@ def dispose():
 
 
 def set_api_key(api_key, secret_key):
-    global module_api_key
+    global module_api_key, module_secret_key
     module_api_key = api_key
     module_secret_key = secret_key
 

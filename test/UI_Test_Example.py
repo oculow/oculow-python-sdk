@@ -8,7 +8,7 @@ oculow.set_app_id("oculow")
 oculow.set_baseline_management(oculow.ASSISTED)
 oculow.set_comparison_logic(oculow.PIXEL_DIFF)
 
-driver = webdriver.Chrome()
+driver = webdriver.Chrome("C:\\Users\\potos\\Documents\\oculow\\oculow-python-sdk\\chromedriver.exe")
 
 # Capture lince website
 driver.get("http://www.oculow.com")
