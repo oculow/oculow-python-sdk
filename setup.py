@@ -4,7 +4,7 @@ setup(
     name='Oculow',
     packages=['Oculow'],
     version='0.1.2',
-    license='Apache 2',
+    license='Apache Software License',
     description='Visual testing framework',  # Give a short description about library
     author='Diego Ferrand',
     author_email='potosin@live.com',
@@ -20,7 +20,7 @@ setup(
         # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Build Tools',
-        'License :: OSI Approved :: Apache 2',
+        'OSI Approved :: Apache Software License',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
