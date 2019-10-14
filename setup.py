@@ -3,8 +3,8 @@ from distutils.core import setup
 setup(
     name='Oculow',
     packages=['Oculow'],
-    version='0.1.3',
-    license='Apache Software License',
+    version='v0.1.3',
+    license='Apache2',
     description='Visual testing framework',  # Give a short description about library
     author='Diego Ferrand',
     author_email='potosin@live.com',
@@ -20,7 +20,6 @@ setup(
         # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Build Tools',
-        'OSI Approved :: Apache Software License',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
