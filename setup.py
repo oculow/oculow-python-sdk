@@ -3,13 +3,13 @@ from distutils.core import setup
 setup(
     name='Oculow',
     packages=['Oculow'],
-    version='0.1.2',
+    version='0.1.3',
     license='Apache Software License',
     description='Visual testing framework',  # Give a short description about library
     author='Diego Ferrand',
     author_email='potosin@live.com',
     url='https://github.com/oculow/oculow-python-sdk.git',
-    download_url='https://github.com/oculow/oculow-python-sdk/archive/v0.1.2.zip',
+    download_url='https://github.com/oculow/oculow-python-sdk/archive/v0.1.3.zip',
     keywords=['VISUAL', 'TESTING', 'AI', 'EASY'],
     install_requires=[
         'validators',
