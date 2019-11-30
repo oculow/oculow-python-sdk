@@ -25,9 +25,9 @@ module_app_id = None
 viewport_width = None
 viewport_height = None
 base_url = "https://us-central1-lince-232621.cloudfunctions.net/"
-_report_base_url = "https://www.oculow.com/dashboard/executions.html"
-execution_status_function = "get_execution_status-prod"  # TODO extract to config file
-process_function = "process_image-prod"  # TODO extract to config file
+_report_base_url = "https://dev.oculow.com/dashboard/executions.html"
+execution_status_function = "get_execution_status-dev"  # TODO extract to config file
+process_function = "process_image-dev"  # TODO extract to config file
 
 
 def get_result():
